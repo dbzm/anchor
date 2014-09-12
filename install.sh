@@ -11,9 +11,9 @@ case $OS in
       Ubuntu) 
         # echo "Ubuntu, great!"
         # Install all of the necessary packages for vim configuration
-        sudo apt-get -q=2 install git zsh python-pip curl fontconfig vim ruby ruby-dev \ 
-            libx11-dev libxt-dev libgtk2.0-dev libncurses5 ncurses-dev \
-            python-dev python3 python3-dev python3-pip
+        PKG="apt-get -q=2 install"
+        sudo apt-get -q=2 install git zsh python-pip curl fontconfig vim ruby ruby-dev
+        sudo apt-get -q=2 install python-pip python-dev python3 python3-dev python3-pip
         ;;
       *) 
         echo "Sorry, Linux distribution '$DISTRO' is not supported"
@@ -28,11 +28,13 @@ case $OS in
 esac
 
 
-if [[ ! -d ${HOME}/.local/bin/Lokaltog/powerline]]
-    echo "# Installing Powerline with pip"
-    pip install --user git+git://github.com/Lokaltog/powerline
+if [ ! -d ${HOME}/.local/bin/Lokaltog/powerline]
+  then
+    echo "# Installing powerline with pip"
+    sudo pip install git+git://github.com/Lokaltog/powerline
+  fi
 
-echo "# Installing Powerline fonts"
+echo "Installing Powerline fonts"
 wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
 wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
 sudo mv PowerlineSymbols.otf /usr/share/fonts/
@@ -40,7 +42,15 @@ sudo fc-cache -vf
 sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
 
 echo "# Installing Vundle"
-git clone https://github.com/gmarik/vundle.git ${HOME}/.vim/bundle/vundle
+git clone https://github.com/gmarik/vundle.git ${HOME}/.vim/bundle/Vundle.vim
 
 echo "# Installing Vim plugins using Vundle"
-vim +BundleInstall! +BundleClean +qall
+vim +BundleInstall +BundleClean +qall
+
+echo "# Installing zsh"
+sudo $PKG zsh
+chsh -s /bin/zsh
+
+for rcfile in "./garden/.zprezto/runcoms/z*"; do
+  ln -s "$rcfile" "${HOME}/\.${rcfile:t}"
+done

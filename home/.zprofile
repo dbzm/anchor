@@ -88,3 +88,4 @@ pythonpath=(
 
 # Env Vars
 export VAGRANT_MAX_VM_MEMORY=4096  
+export ZDOTDIR=${HOME}/.homesick/repos/anchor/garden

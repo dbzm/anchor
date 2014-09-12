@@ -18,7 +18,7 @@ fi
 
 # It's not forwever, but I need some kind of statusline
 #
-. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+. /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
 
  
 #   -----------------------------

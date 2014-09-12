@@ -2,7 +2,7 @@
 
 YCM=${HOME}/.vim/bundle/YouCompleteMe
 
-if [[! -d ${YCM} ]]; then
+if [! -d ${YCM} ]; then
     echo "YouCompleteMe not installed!"
     return 1
 fi
