@@ -51,6 +51,3 @@ echo "# Installing zsh"
 sudo $PKG zsh
 chsh -s /bin/zsh
 
-for rcfile in "./garden/.zprezto/runcoms/z*"; do
-  ln -s "$rcfile" "${HOME}/\.${rcfile:t}"
-done
