@@ -1,0 +1,3 @@
+[submodule "garden/.zprezto"]
+	path = garden/.zprezto
+	url = ssh://git@github.com/sorin-ionescu/prezto
