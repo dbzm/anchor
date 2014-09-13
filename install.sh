@@ -50,8 +50,3 @@ vim +BundleInstall +BundleClean +qall
 echo "# Installing zsh"
 sudo $PKG zsh
 chsh -s /bin/zsh
-
-setopt EXTENDED_GLOB
-for rcfile in "./garden/.zprezto/runcoms/^README.md(.N)"; do
-  ln -s "$rcfile" "${HOME}/.${rcfile:t}"
-done
