@@ -7,10 +7,24 @@
 #
 # Browser
 #
-
-if [[ "$OSTYPE" == darwin* ]]; then
-  export BROWSER='open'
-fi
+OS=$(uname -s)
+case $OS in
+  Linux) 
+    DISTRO=$(lsb_release -si)
+    case $DISTRO in
+      Ubuntu) 
+        eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa)
+        ;;
+      *) 
+        ;;
+    esac
+    ;;
+  Darwin)
+    BROWSER='open'
+    ;;
+  *) 
+    ;;
+esac
 
 #
 # Editors
@@ -89,3 +103,5 @@ pythonpath=(
 # Env Vars
 export VAGRANT_MAX_VM_MEMORY=4096  
 export ZDOTDIR=${HOME}/.homesick/repos/anchor/garden
+
+source ${HOME}/.zshrc
