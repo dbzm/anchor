@@ -28,7 +28,7 @@ case $OS in
 esac
 
 
-if [ ! -d ${HOME}/.local/bin/Lokaltog/powerline]
+if [ ! -d ${HOME}/.local/bin/Lokaltog/powerline ]
   then
     echo "# Installing powerline with pip"
     sudo pip install git+git://github.com/Lokaltog/powerline
@@ -51,6 +51,7 @@ echo "# Installing zsh"
 sudo $PKG zsh
 chsh -s /bin/zsh
 
-for rcfile in "./garden/.zprezto/runcoms/z*"; do
-  ln -s "$rcfile" "${HOME}/\.${rcfile:t}"
+setopt EXTENDED_GLOB
+for rcfile in "./garden/.zprezto/runcoms/^README.md(.N)"; do
+  ln -s "$rcfile" "${HOME}/.${rcfile:t}"
 done
