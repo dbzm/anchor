@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
-CONFIG_FILE=${HOME}/.config/dmconfig
-
 # ubuntu check
 OS=$(uname -s)
 case $OS in
@@ -50,3 +48,9 @@ vim +BundleInstall +BundleClean +qall
 echo "# Installing zsh"
 sudo $PKG zsh
 chsh -s /bin/zsh
+
+echo "# Installing prezto"
+zsh ./prezto.sh
+
+echo "# Compiling YouCompleteMe"
+bash ./youcompleteme.sh
