@@ -39,3 +39,6 @@ build/
 # git submodules
 .gitmodules
 garden/.*
+
+# Vagrant files
+.vagrant
