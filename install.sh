@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+homesick link anchor
+
 # ubuntu check
 OS=$(uname -s)
 case $OS in
@@ -9,9 +11,9 @@ case $OS in
       Ubuntu) 
         # echo "Ubuntu, great!"
         # Install all of the necessary packages for vim configuration
-        PKG="apt-get -q=2 install"
-        sudo apt-get -q=2 install git zsh python-pip curl fontconfig vim ruby ruby-dev
-        sudo apt-get -q=2 install python-pip python-dev python3 python3-dev python3-pip
+        PKG="sudo apt-get -q=2 install"
+        ${PKG} git zsh python-pip curl fontconfig vim ruby ruby-dev
+        ${PKG} python-pip python-dev python3 python3-dev python3-pip
         ;;
       *) 
         echo "Sorry, Linux distribution '$DISTRO' is not supported"
@@ -46,7 +48,7 @@ echo "# Installing Vim plugins using Vundle"
 vim +BundleInstall +BundleClean +qall
 
 echo "# Installing zsh"
-sudo $PKG zsh
+${PKG} zsh
 chsh -s /bin/zsh
 
 echo "# Installing prezto"
