@@ -45,7 +45,8 @@ echo "# Installing Vundle"
 git clone https://github.com/gmarik/vundle.git ${HOME}/.vim/bundle/Vundle.vim
 
 echo "# Installing Vim plugins using Vundle"
-vim +BundleInstall +BundleClean +qall
+# Use the implicit newline from echo
+echo | vim +BundleInstall +BundleClean +qall
 
 echo "# Installing zsh"
 ${PKG} zsh
