@@ -13,7 +13,7 @@ case $OS in
     DISTRO=$(lsb_release -si)
     case $DISTRO in
       Ubuntu) 
-        eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa)
+        #eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa)
         ;;
       *) 
         ;;
@@ -91,13 +91,10 @@ path_additions=(
     /usr/local/bin
     /usr/local/sbin
 )
-path=(
-    $path_additions
-    $path
-    )
 
-pythonpath=(
-    ${HOME}/proj/ds-utils/dsutils
+path=(
+    $path
+    $path_additions
     )
 
 # Env Vars
