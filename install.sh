@@ -12,8 +12,6 @@ case $OS in
         # echo "Ubuntu, great!"
         # Install all of the necessary packages for vim configuration
         PKG="sudo apt-get -q=2 install"
-        ${PKG} git zsh python-pip curl fontconfig vim ruby ruby-dev
-        ${PKG} python-pip python-dev python3 python3-dev python3-pip
         ;;
       *) 
         echo "Sorry, Linux distribution '$DISTRO' is not supported"
@@ -21,12 +19,35 @@ case $OS in
         ;;
     esac
     ;;
+  Darwin)
+    echo "# Ok, it's a mac"
+    # Is brew installed?
+    if [ ! -e /usr/local/bin/brew ]
+      then
+        echo "Brew is not installed.  Installing Brew"
+        # Macs should already have ruby
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        if [ ! $? -eq 0 ]; then
+          echo "Brew install failed.  Install brew and try again."
+          return 1
+        fi
+        echo "# Brew install confirmed. Proceeding"
+    fi
+    brew update
+    brew upgrade
+    PKG="brew install"
+    
+    # Don't use mac system python
+    brew install python
+    ;;
   *) 
     echo "Sorry, OS '$OS' is not supported"
     exit 1
     ;;
 esac
 
+${PKG} git zsh python-pip curl fontconfig vim ruby ruby-dev
+${PKG} python-dev python3 python3-dev python3-pip
 
 if [ ! -d ${HOME}/.local/bin/Lokaltog/powerline ]
   then

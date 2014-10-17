@@ -23,6 +23,7 @@ call vundle#begin()
         Bundle 'plasticboy/vim-markdown'
         Bundle 'scrooloose/nerdtree'
         Bundle 'bling/vim-airline'
+ "      Bundle 'klen/python-mode'
 
 
 " All of your Plugins must be added before the following line
@@ -46,6 +47,12 @@ call vundle#end()            " required
  set t_Co=256
  let g:airline_powerline_fonts = 1
  let g:airline#extensions#tabline#enabled = 1
+
+ " ==========================================================
+ " Python-Mode settings
+ " ==========================================================
+ " folding
+ " checkers
  
  " ==========================================================
  " NERDTree (and Tabs)
@@ -84,7 +91,10 @@ call vundle#end()            " required
  " Filetype Handling
  " ==========================================================
  " Prevent conflicts between YCM and python-mode (YCM lacks
- " python3 support)
+ " robust python support, at least for what I want)
  "   let g:ycm_filetype_blacklist = {
  "                                  \ 'python' : 1
  "                                  \}
+
+ " Allow OSX editing of crontab using vim
+ autocmd filetype crontab setlocal nobackup nowritebackup
