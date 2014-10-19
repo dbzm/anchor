@@ -93,8 +93,8 @@ path_additions=(
 )
 
 path=(
-    $path
     $path_additions
+    $path
     )
 
 # Env Vars
