@@ -1,4 +1,4 @@
-ln -sf ./garden/.zprezto/ $HOME/.zprezto
+ln -sf ${PWD}/garden/.zprezto $HOME/
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
