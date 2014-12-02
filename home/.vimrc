@@ -63,14 +63,22 @@ call vundle#end()            " required
  " ==========================================================
  " Editing
  " ==========================================================
- set softtabstop=2
- set shiftwidth=2
- set autoindent
  set expandtab
+ set autoindent
  set shiftround              " rounds indent to a multiple of shiftwidth
  set textwidth=80            " Lines are automatically wrapped after 80 columns
  set backspace=2             " Make backspace work like it does everywhere else
 
+ " Set the tab width
+ let s:tabwidth=2
+ exec 'set shiftwidth='.s:tabwidth
+ exec 'set softtabstop='.s:tabwidth
+ 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_auto_loc_list=1
+let g:syntastic_loc_list_height=5
 
  " ==========================================================
  " Aesthetics
