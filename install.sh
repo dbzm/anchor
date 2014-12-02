@@ -9,9 +9,14 @@ case $OS in
     DISTRO=$(lsb_release -si)
     case $DISTRO in
       Ubuntu) 
-        # echo "Ubuntu, great!"
-        # Install all of the necessary packages for vim configuration
+        echo "# Ubuntu, great!"
+
+        echo "# update and upgrade"
+        sudo apt-get update
+        sudo apt-get upgrade
+
         PKG="sudo apt-get -q=2 install"
+        AG_SEARCH=silversearcher-ag
         ;;
       *) 
         echo "Sorry, Linux distribution '$DISTRO' is not supported"
@@ -48,6 +53,7 @@ esac
 
 ${PKG} git zsh python-pip curl fontconfig vim ruby ruby-dev
 ${PKG} python-dev python3 python3-dev python3-pip
+${PKG} ${AG_SEARCH:-the_silver_searcher}
 
 if [ ! -d ${HOME}/.local/bin/Lokaltog/powerline ]
   then
@@ -69,8 +75,7 @@ echo "# Installing Vim plugins using Vundle"
 # Use the implicit newline from echo
 echo | vim +BundleInstall +BundleClean +qall
 
-echo "# Installing zsh"
-${PKG} zsh
+echo "# change to zsh"
 chsh -s /bin/zsh
 
 echo "# Installing prezto"
