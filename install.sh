@@ -58,7 +58,8 @@ ${PKG} ${AG_SEARCH:-the_silver_searcher}
 if [ ! -d ${HOME}/.local/bin/Lokaltog/powerline ]
   then
     echo "# Installing powerline with pip"
-    sudo pip install git+git://github.com/Lokaltog/powerline
+    echo "# Powerline is currently pegged at version 1.2 due to tmux issues"
+    sudo pip install git+git://github.com/Lokaltog/powerline@1.2
   fi
 
 echo "Installing Powerline fonts"
