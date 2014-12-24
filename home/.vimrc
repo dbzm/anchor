@@ -10,20 +10,21 @@ call vundle#begin()
  " Bundles
  " ==========================================================
 
-        Bundle 'gmarik/Vundle.vim'
-        Bundle 'altercation/vim-colors-solarized'
-        Bundle 'jistr/vim-nerdtree-tabs'
-        Bundle 'chriskempson/base16-vim'
-        Bundle 'scrooloose/syntastic'
-        Bundle 'Valloric/YouCompleteMe'
-        Bundle 'elzr/vim-json'
-        Bundle 'tpope/vim-fugitive'
-        Bundle 'tpope/vim-surround'
-        Bundle 'christoomey/vim-tmux-navigator'
-        Bundle 'plasticboy/vim-markdown'
-        Bundle 'scrooloose/nerdtree'
-        Bundle 'bling/vim-airline'
- "      Bundle 'klen/python-mode'
+        Plugin 'gmarik/Vundle.vim'
+        Plugin 'altercation/vim-colors-solarized'
+        Plugin 'jistr/vim-nerdtree-tabs'
+        Plugin 'chriskempson/base16-vim'
+        Plugin 'scrooloose/syntastic'
+        Plugin 'Valloric/YouCompleteMe'
+        Plugin 'elzr/vim-json'
+        Plugin 'avakhov/vim-yaml'
+        Plugin 'tpope/vim-fugitive'
+        Plugin 'tpope/vim-surround'
+        Plugin 'christoomey/vim-tmux-navigator'
+        Plugin 'plasticboy/vim-markdown'
+        Plugin 'scrooloose/nerdtree'
+        Plugin 'bling/vim-airline'
+ "      Plugin 'klen/python-mode'
 
 
 " All of your Plugins must be added before the following line
