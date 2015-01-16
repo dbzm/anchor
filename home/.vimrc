@@ -24,6 +24,7 @@ call vundle#begin()
         Plugin 'plasticboy/vim-markdown'
         Plugin 'scrooloose/nerdtree'
         Plugin 'bling/vim-airline'
+        Plugin 'nvie/vim-flake8'
  "      Plugin 'klen/python-mode'
 
 
