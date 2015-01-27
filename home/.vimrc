@@ -25,11 +25,11 @@ call vundle#begin()
         Plugin 'scrooloose/nerdtree'
         Plugin 'bling/vim-airline'
         Plugin 'nvie/vim-flake8'
- "      Plugin 'klen/python-mode'
+        Plugin 'kien/ctrlp.vim'
+        Plugin 'sjl/gundo.vim'
 
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+ " All of your Plugins must be added before the following line
+ call vundle#end()            " required
 
  " ==========================================================
  " Basic Settings
@@ -72,7 +72,7 @@ call vundle#end()            " required
  set backspace=2             " Make backspace work like it does everywhere else
 
  " Set the tab width
- let s:tabwidth=2
+ let s:tabwidth=4
  exec 'set shiftwidth='.s:tabwidth
  exec 'set softtabstop='.s:tabwidth
  
