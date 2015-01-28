@@ -63,6 +63,11 @@ call vundle#begin()
  let g:nerdtree_tabs_smart_startup_focus = 2
 
  " ==========================================================
+ " Syntastic (Python syntax checker)
+ " ==========================================================
+ let g:syntastic_python_python_exec = 'python3'
+ 
+ " ==========================================================
  " Editing
  " ==========================================================
  set expandtab
