@@ -52,7 +52,7 @@ case $OS in
 esac
 
 ${PKG} git zsh python-pip curl fontconfig vim ruby ruby-dev
-${PKG} python-dev python3 python3-dev python3-pip
+${PKG} python-dev python3 python3-dev python3-pip python3-flake8
 ${PKG} ${AG_SEARCH:-the_silver_searcher}
 
 if [ ! -d ${HOME}/.local/bin/Lokaltog/powerline ]
