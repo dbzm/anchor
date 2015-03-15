@@ -86,8 +86,8 @@ let g:syntastic_loc_list_height=5
  " Aesthetics
  " ==========================================================
  " let base16colorspace=256  " Access colors present in 256 colorspace (Base16)
- colorscheme solarized
- set background=dark
+ " colorscheme solarized
+ " set background=dark
  
  " ==========================================================
  " Navigation
