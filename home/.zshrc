@@ -78,4 +78,4 @@ POWERLINE="/usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerli
 
 source $POWERLINE
 
-export PONCHO_ENV='development'
+export PONCHO_ENV='test'
