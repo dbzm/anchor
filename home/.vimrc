@@ -73,7 +73,7 @@ call vundle#begin()
  set expandtab
  set autoindent
  set shiftround              " rounds indent to a multiple of shiftwidth
- set textwidth=80            " Lines are automatically wrapped after 80 columns
+ set textwidth=79            " Lines are automatically wrapped after 79 columns
  set backspace=2             " Make backspace work like it does everywhere else
 
  " Set the tab width
@@ -113,3 +113,6 @@ let g:syntastic_loc_list_height=5
 
  " Allow OSX editing of crontab using vim
  autocmd filetype crontab setlocal nobackup nowritebackup
+
+ " Skelfiles
+ autocmd BufNewFile,BufRead *.skel set filetype=yaml
