@@ -76,6 +76,12 @@ POWERLINE="/usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerli
         alias finderHideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
     fi
 
+#   ---------------------------------------
+#   7.  Git functionality
+#   ---------------------------------------
+
+    alias gitflake='flake8 `git status --porcelain | sed "s/^...//" | grep ".*.py"`'
+
 source $POWERLINE
 
 export PONCHO_ENV='test'
