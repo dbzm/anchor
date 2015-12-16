@@ -16,6 +16,7 @@ case $OS in
         sudo apt-get upgrade
 
         PKG="sudo apt-get -q=2 install"
+        ${PKG} landscape-common update-notifier
         AG_SEARCH=silversearcher-ag
         ;;
       *) 
@@ -81,6 +82,9 @@ chsh -s /bin/zsh
 
 echo "# Installing prezto"
 zsh ./prezto.sh
+
+echo "# updating motd"
+zsh ./motd.sh > /etc/motd
 
 echo "# Compiling YouCompleteMe"
 bash ./youcompleteme.sh
