@@ -84,7 +84,7 @@ echo "# Installing prezto"
 zsh ./prezto.sh
 
 echo "# updating motd"
-zsh ./motd.sh > /etc/motd
+zsh ./motd.sh | sudo tee /etc/motd
 
 echo "# Compiling YouCompleteMe"
 bash ./youcompleteme.sh
