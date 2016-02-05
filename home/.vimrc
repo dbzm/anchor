@@ -11,7 +11,7 @@ call vundle#begin()
  " ==========================================================
 
         Plugin 'gmarik/Vundle.vim'
-        Plugin 'altercation/vim-colors-solarized'
+"       Plugin 'altercation/vim-colors-solarized'
         Plugin 'avakhov/vim-yaml'
         Plugin 'bling/vim-airline'
         Plugin 'chriskempson/base16-vim'
@@ -91,9 +91,9 @@ let g:syntastic_loc_list_height=5
  " ==========================================================
  " Aesthetics
  " ==========================================================
- " let base16colorspace=256  " Access colors present in 256 colorspace (Base16)
- colorscheme solarized
- set background=dark
+   let base16colorspace=256  " Access colors present in 256 colorspace (Base16)
+   colorscheme base16-monokai
+   set background=dark
  
  " ==========================================================
  " Navigation

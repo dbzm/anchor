@@ -10,6 +10,11 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+B16SCHEME=monokai
+B16BKGRND=dark
+BASE16=${BASE16DIR:-$HOME}/.config/base16-shell/base16-${B16SCHEME:-monokai}.${B16BKGRND:-dark}.sh
+[[ -s ${BASE16} ]] && source ${BASE16}
+
 # Base16 Shell
 #  export BASE16_SCHEME="tomorrow" # This may also be used by .vimrc
 #  BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
@@ -19,6 +24,7 @@ fi
 # It's not forwever, but I need some kind of statusline
 #
 POWERLINE="/usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh"
+
 
  
 #   -----------------------------
