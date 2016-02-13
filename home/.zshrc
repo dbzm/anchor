@@ -6,12 +6,18 @@
 #
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+GARDEN=$(homesick show_path anchor)/garden
+if [[ -s "${GARDEN:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${GARDEN:-$HOME}/.zprezto/init.zsh"
+fi
+if [[ -s "${GARDEN:-$HOME}/.powerline" ]]; then
+  export PWR_BINDINGS=${GARDEN:-$HOME}/.powerline/bindings
+  POWERLINE=${PWR_BINDINGS}/zsh/powerline.zsh
 fi
 
-B16SCHEME=monokai
-B16BKGRND=dark
+
+export B16SCHEME=monokai
+export B16BKGRND=dark
 BASE16=${BASE16DIR:-$HOME}/.config/base16-shell/base16-${B16SCHEME:-monokai}.${B16BKGRND:-dark}.sh
 [[ -s ${BASE16} ]] && source ${BASE16}
 
@@ -20,11 +26,6 @@ BASE16=${BASE16DIR:-$HOME}/.config/base16-shell/base16-${B16SCHEME:-monokai}.${B
 #  BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 #  [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 #
-
-# It's not forwever, but I need some kind of statusline
-#
-POWERLINE="/usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh"
-
 
  
 #   -----------------------------

@@ -2,6 +2,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=$PWR_BINDINGS/vim
 
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
@@ -11,9 +12,7 @@ call vundle#begin()
  " ==========================================================
 
         Plugin 'gmarik/Vundle.vim'
-"       Plugin 'altercation/vim-colors-solarized'
         Plugin 'avakhov/vim-yaml'
-        Plugin 'bling/vim-airline'
         Plugin 'chriskempson/base16-vim'
         Plugin 'christoomey/vim-tmux-navigator'
         Plugin 'ekalinin/Dockerfile.vim'
@@ -89,11 +88,11 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=5
 
  " ==========================================================
- " Aesthetics
+ " Aesthetics -- use env variables
  " ==========================================================
    let base16colorspace=256  " Access colors present in 256 colorspace (Base16)
-   colorscheme base16-monokai
-   set background=dark
+   colorscheme base16-$B16SCHEME
+   let &background=$B16BKGRND
  
  " ==========================================================
  " Navigation
