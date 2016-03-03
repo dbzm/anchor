@@ -56,19 +56,8 @@ ${PKG} git zsh python-pip curl fontconfig vim ruby ruby-dev tmux screen
 ${PKG} python-dev python3 python3-dev python3-pip python3-flake8
 ${PKG} ${AG_SEARCH:-the_silver_searcher}
 
-if [ ! -d ${HOME}/.local/bin/Lokaltog/powerline ]
-  then
-    echo "# Installing powerline with pip"
-    echo "# Powerline is currently pegged at version 1.2 due to tmux issues"
-    sudo pip install git+git://github.com/Lokaltog/powerline@1.2
-  fi
-
-echo "Installing Powerline fonts"
-wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
-wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
-sudo mv PowerlineSymbols.otf /usr/share/fonts/
-sudo fc-cache -vf
-sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
+echo "# Installing powerline"
+zsh ./powerline.sh
 
 echo "# Installing Vundle"
 git clone https://github.com/gmarik/vundle.git ${HOME}/.vim/bundle/Vundle.vim
