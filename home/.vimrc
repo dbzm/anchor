@@ -27,6 +27,7 @@ call vundle#begin()
         Plugin 'tpope/vim-fugitive'
         Plugin 'tpope/vim-surround'
         Plugin 'Valloric/YouCompleteMe'
+        Plugin 'jlanzarotta/bufexplorer'
 
  " All of your Plugins must be added before the following line
  call vundle#end()            " required
@@ -47,8 +48,8 @@ call vundle#begin()
  " ==========================================================
  set laststatus=2
  set t_Co=256
- let g:airline_powerline_fonts = 1
- let g:airline#extensions#tabline#enabled = 1
+ " let g:airline_powerline_fonts = 1
+ " let g:airline#extensions#tabline#enabled = 1
 
  " ==========================================================
  " Python-Mode settings
@@ -103,6 +104,12 @@ let g:syntastic_loc_list_height=5
  map <c-h> <c-w>h
 
  " ==========================================================
+ " Quick Access
+ " ==========================================================
+ nmap ERE :BufExplorer<Return>
+ nmap REW :registers<Return>
+
+ " ==========================================================
  " Filetype Handling
  " ==========================================================
  " Prevent conflicts between YCM and python-mode (YCM lacks
@@ -116,3 +123,6 @@ let g:syntastic_loc_list_height=5
 
  " Skelfiles
  autocmd BufNewFile,BufRead *.skel set filetype=yaml
+
+ " Git Settings
+ autocmd filetype gitcommit set textwidth=72
