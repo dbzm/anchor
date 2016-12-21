@@ -87,6 +87,7 @@ if [[ ! -d "$TMPPREFIX" ]]; then
 fi
 
 path_additions=(
+    $(homesick show_path anchor)/bin
     ${HOME}/.local/bin
     /usr/local/bin
     /usr/local/sbin

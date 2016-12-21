@@ -1,0 +1,4 @@
+#!/bin/bash
+for action in update upgrade dist-upgrade; do
+  sudo apt-get $action
+done
