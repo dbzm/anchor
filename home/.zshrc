@@ -90,5 +90,3 @@ BASE16=${BASE16DIR:-$HOME}/.config/base16-shell/base16-${B16SCHEME:-monokai}.${B
     alias gitflake='flake8 `git status --porcelain | sed "s/^...//" | grep ".*.py"`'
 
 source $POWERLINE
-
-export PONCHO_ENV='test'
