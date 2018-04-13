@@ -121,8 +121,5 @@ let g:syntastic_loc_list_height=5
  " Allow OSX editing of crontab using vim
  autocmd filetype crontab setlocal nobackup nowritebackup
 
- " Skelfiles
- autocmd BufNewFile,BufRead *.skel set filetype=yaml
-
  " Git Settings
  autocmd filetype gitcommit set textwidth=72

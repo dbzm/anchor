@@ -98,11 +98,4 @@ path=(
     $path
     )
 
-# Env Vars
-export VAGRANT_MAX_VM_MEMORY=4096  
-
 source ${HOME}/.zshrc
-
-if [ -f "/home/vagrant/.conda_profile" ]; then
-  . "/home/vagrant/.conda_profile"
-fi
