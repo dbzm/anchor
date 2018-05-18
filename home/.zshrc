@@ -51,6 +51,7 @@ BASE16=${BASE16DIR:-$HOME}/.config/base16-shell/base16-${B16SCHEME:-monokai}.${B
     alias ~="cd ~"                              # ~:            Go Home
     alias which='whence -asv'                   # which:        Find executables
     alias mypath='echo -e ${PATH//:/\\n}'       # path:         Echo all executable Paths
+    alias tmux='tmux -2'                        # tmux:         Open tmux in 256-color mode
     mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
 
 #   ---------------------------

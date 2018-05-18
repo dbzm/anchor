@@ -47,7 +47,7 @@ call vundle#begin()
  " Vim-Airline Settings
  " ==========================================================
  set laststatus=2
- set t_Co=256
+ " set t_Co=256
  " let g:airline_powerline_fonts = 1
  " let g:airline#extensions#tabline#enabled = 1
 
@@ -93,6 +93,7 @@ let g:syntastic_loc_list_height=5
    let base16colorspace=256  " Access colors present in 256 colorspace (Base16)
    colorscheme base16-$B16SCHEME
    let &background=$B16BKGRND
+   set termguicolors  " Maintain part of 256 colorspace to avoid bright blue lines
  
  " ==========================================================
  " Navigation
