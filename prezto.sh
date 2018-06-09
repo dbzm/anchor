@@ -1,3 +1,5 @@
+set -ex
+
 ZPREZTO=${PWD}/garden/.zprezto
 git clone --recursive -b pegged git@github.com:dbzm/prezto.git ${ZPREZTO}
 ln -sf ${ZPREZTO} $HOME/

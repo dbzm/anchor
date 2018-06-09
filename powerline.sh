@@ -1,3 +1,5 @@
+set -ex
+
 pip2 install --user powerline-status
 POWERLINE_LOC=$(python2 -c "import powerline, os.path; \\
                            print(os.path.dirname(powerline.__file__))")

@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -ex
+
 homesick link anchor
 
 # ubuntu check

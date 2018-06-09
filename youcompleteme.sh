@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -ex
+
 YCM=${HOME}/.vim/bundle/YouCompleteMe
 
 if [ ! -d ${YCM} ]; then
