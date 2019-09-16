@@ -1,2 +1,27 @@
+# Mac
+.DS_Store
+
 # Vim detritus
 *.swp
+
+# testing
+.pytest_cache/
+
+# development - never save scratch or tmp
+scratch/
+tmp/
+.*_cache/
+*.scratch
+*.tmp
+
+# git manipulation files
+*.diff
+
+# secrets
+.secrets.*.yaml
+
+# Casesafe
+.fseventsd
+
+# pg custom format exports
+*.pg

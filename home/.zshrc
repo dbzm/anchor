@@ -4,16 +4,25 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-
 # Source Prezto.
 GARDEN=$(homesick show_path anchor)/garden
-if [[ -s "${GARDEN:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${GARDEN:-$HOME}/.zprezto/init.zsh"
+GARDEN=${GARDEN:-$HOME}
+if [[ -s "${GARDEN}/.zprezto/init.zsh" ]]; then
+  source "${GARDEN}/.zprezto/init.zsh"
 fi
-if [[ -s "${GARDEN:-$HOME}/.powerline" ]]; then
-  export PWR_BINDINGS=${GARDEN:-$HOME}/.powerline/bindings
+
+if [[ -s "${GARDEN}/.powerline" ]]; then
+  export PWR_BINDINGS=${GARDEN}/.powerline/bindings
   POWERLINE=${PWR_BINDINGS}/zsh/powerline.zsh
 fi
+
+# source completions
+if [[ -d "${GARDEN}/completions" ]]; then
+    for completion in $(ls "${GARDEN}/completions" 2> /dev/null); do
+        source "${GARDEN}/completions/${completion}"
+    done
+fi
+
 
 
 export B16SCHEME=monokai
@@ -52,7 +61,29 @@ BASE16=${BASE16DIR:-$HOME}/.config/base16-shell/base16-${B16SCHEME:-monokai}.${B
     alias which='whence -asv'                   # which:        Find executables
     alias mypath='echo -e ${PATH//:/\\n}'       # path:         Echo all executable Paths
     alias tmux='tmux -2'                        # tmux:         Open tmux in 256-color mode
-    mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
+    mcdir () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
+    mpydir () {mcdir "$1" && touch "__init__.py"}
+
+
+#   ---------------------------
+#   3.  OTHER ALIASES
+#   ---------------------------
+
+    #  3.1:     Docker
+    alias dce='docker-compose exec'             # docker-compose: Exec mode
+    alias dcli='docker-compose exec django python django/manage.py'
+    alias dosypr='docker system prune --volumes -f'
+
+    alias dk-running='docker kill $(docker ps -q)' # Kill running containers
+
+    alias avtest='docker-compose exec django pytest'
+
+    # 3.2:      Git
+    alias gc-ane='git commit --amend --no-edit'
+    alias gp-refresh='git pull --all --tags --prune'
+
+    alias be='bundle exec '
+    alias oal='onelogin-aws-login --profile=default'
 
 #   ---------------------------
 #   4.  SEARCHING
@@ -89,5 +120,8 @@ BASE16=${BASE16DIR:-$HOME}/.config/base16-shell/base16-${B16SCHEME:-monokai}.${B
 #   ---------------------------------------
 
     alias gitflake='flake8 `git status --porcelain | sed "s/^...//" | grep ".*.py"`'
+    alias gbs='git for-each-ref --sort=committerdate refs/heads/ \
+      --format="%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))"'
+
 
 source $POWERLINE

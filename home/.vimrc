@@ -12,6 +12,7 @@ call vundle#begin()
  " ==========================================================
 
         Plugin 'gmarik/Vundle.vim'
+ "      Plugin 'ambv/black'
         Plugin 'avakhov/vim-yaml'
         Plugin 'chriskempson/base16-vim'
         Plugin 'christoomey/vim-tmux-navigator'
@@ -22,12 +23,17 @@ call vundle#begin()
         Plugin 'nvie/vim-flake8'
         Plugin 'plasticboy/vim-markdown'
         Plugin 'scrooloose/nerdtree'
-        Plugin 'scrooloose/syntastic'
+ "      Plugin 'scrooloose/syntastic'
         Plugin 'sjl/gundo.vim'
         Plugin 'tpope/vim-fugitive'
         Plugin 'tpope/vim-surround'
         Plugin 'Valloric/YouCompleteMe'
         Plugin 'jlanzarotta/bufexplorer'
+        Plugin 'cespare/vim-toml'
+        Plugin 'sheerun/vim-polyglot'
+        Plugin 'hashivim/vim-terraform'
+        Plugin 'saltstack/salt-vim'
+        Plugin 'vito-c/jq.vim'
 
  " All of your Plugins must be added before the following line
  call vundle#end()            " required
@@ -56,6 +62,7 @@ call vundle#begin()
  " ==========================================================
  let g:nerdtree_tabs_open_on_console_startup = 1
  let g:nerdtree_tabs_smart_startup_focus = 2
+ let NERDTreeIgnore= ['^\.pytest_cache$', '^__pycache__$', '\.pyc$']
 
  " ==========================================================
  " Syntastic (Python syntax checker)
@@ -77,15 +84,15 @@ call vundle#begin()
  set backspace=2             " Make backspace work like it does everywhere else
 
  " Set the tab width
- let s:tabwidth=4
+ let s:tabwidth=2
  exec 'set shiftwidth='.s:tabwidth
  exec 'set softtabstop='.s:tabwidth
  
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_auto_loc_list=1
-let g:syntastic_loc_list_height=5
+ set statusline+=%#warningmsg#
+ set statusline+=%{SyntasticStatuslineFlag()}
+ set statusline+=%*
+ let g:syntastic_auto_loc_list=1
+ let g:syntastic_loc_list_height=5
 
  " ==========================================================
  " Aesthetics -- use env variables
@@ -121,5 +128,10 @@ let g:syntastic_loc_list_height=5
  " Allow OSX editing of crontab using vim
  autocmd filetype crontab setlocal nobackup nowritebackup
 
+
  " Git Settings
  autocmd filetype gitcommit set textwidth=72
+
+
+ " Python settings
+ " autocmd BufWritePre *.py execute ':Black'

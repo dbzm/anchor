@@ -2,4 +2,5 @@
     editor = vim
     excludesfile = ~/.gitignore
 [user]
-    name = dbzm
+    name = Dovave Maier
+    email = dovavemaier@granular.ag

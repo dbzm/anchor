@@ -91,11 +91,22 @@ path_additions=(
     ${HOME}/.local/bin
     /usr/local/bin
     /usr/local/sbin
+    /usr/local/opt/ruby/bin
 )
 
 path=(
     $path_additions
     $path
     )
+
+fpath_additions=(
+    ${HOME}/.zsh/completion
+)
+
+fpath=(
+    $fpath_additions
+    $fpath
+)
+autoload -Uz compinit && compinit -i
 
 source ${HOME}/.zshrc
