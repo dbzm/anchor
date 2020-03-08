@@ -9,6 +9,7 @@
 
 # development - never save scratch or tmp
 scratch/
+tags
 tmp/
 .*_cache/
 *.scratch
