@@ -1,5 +1,9 @@
 [core]
-    editor = nvim
-    excludesfile = ~/.gitignore
+  editor = nvim
+  excludesfile = ~/.gitignore
 [user]
-    name = Dovave Maier
+  name = Dovave Maier
+[pull]
+	ff = only
+[init]
+	defaultBranch = main

@@ -9,20 +9,20 @@
 #
 OS=$(uname -s)
 case $OS in
-  Linux) 
+  Linux)
     DISTRO=$(lsb_release -si)
     case $DISTRO in
-      Ubuntu) 
+      Ubuntu)
         #eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/*_rsa)
         ;;
-      *) 
+      *)
         ;;
     esac
     ;;
   Darwin)
     BROWSER='open'
     ;;
-  *) 
+  *)
     ;;
 esac
 
@@ -107,6 +107,13 @@ fpath=(
     $fpath_additions
     $fpath
 )
+
+if ! grep pyenv <(echo $path) > /dev/null
+then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
+
 autoload -Uz compinit && compinit -i
 
 source ${HOME}/.zshrc
